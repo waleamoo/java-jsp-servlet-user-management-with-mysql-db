@@ -3,8 +3,26 @@
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
 <web-app>
-  <display-name>Archetype Created Web Application</display-name>
+
+  <display-name>JSP MySQL Web Application</display-name>
+
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
+
+  <error-page>
+    <exception-type>java.lang.Exception</exception-type>
+    <location>/error.jsp</location>
+  </error-page>
+
+  <context-param>
+    <param-name>WebAppContextPath</param-name>
+    <param-value>http://localhost:8082/jsp-servlet-user-management-with-mysql-db/</param-value>
+  </context-param>
+
+  <context-param>
+      <param-name>WebAppName</param-name>
+      <param-value>User Management Application</param-value>
+  </context-param>
+  
 </web-app>

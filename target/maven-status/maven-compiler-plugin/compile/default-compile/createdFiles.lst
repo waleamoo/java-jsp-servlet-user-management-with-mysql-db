@@ -1,5 +1,7 @@
 com\techqwerty\dto\User.class
 com\techqwerty\registration\LogoutServlet.class
+com\techqwerty\registration\StudentServlet.class
 com\techqwerty\registration\RegistrationServlet.class
+com\techqwerty\dto\Student.class
 com\techqwerty\dao\ApplicationDAO.class
 com\techqwerty\registration\LoginServlet.class

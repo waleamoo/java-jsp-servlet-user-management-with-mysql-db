@@ -1,16 +1,13 @@
 package com.techqwerty.registration;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.SQLException;
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import com.techqwerty.dao.ApplicationDAO;
 import com.techqwerty.dto.User;
 
@@ -18,6 +15,13 @@ import com.techqwerty.dto.User;
 public class RegistrationServlet extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
+
+    private ApplicationDAO dao;
+
+    @Override
+    public void init() throws ServletException {
+        dao = new ApplicationDAO();
+    }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -67,8 +71,7 @@ public class RegistrationServlet extends HttpServlet {
         User user = new User(0, username, fullname, password, email, phone);
         // add the user to the database 
         try {
-            ApplicationDAO dao = new ApplicationDAO();
-            dao.connect();
+            
             int rowCount = dao.registerUser(user);
             dispatcher = req.getRequestDispatcher("/home/register.jsp");
             if (rowCount > 0) {

@@ -1,7 +1,7 @@
 package com.techqwerty.registration;
 
 import java.io.IOException;
-import java.sql.SQLException;
+import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,12 +9,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
 import com.techqwerty.dao.ApplicationDAO;
+import com.techqwerty.dto.Student;
 import com.techqwerty.dto.User;
 
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
+
+    private ApplicationDAO applicationDAO;
+
+    @Override
+    public void init() throws ServletException {
+        applicationDAO = new ApplicationDAO();
+    }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -43,14 +50,16 @@ public class LoginServlet extends HttpServlet {
             dispatcher.forward(req, resp);
         }
 
-        // connet to database  
-        ApplicationDAO dao = new ApplicationDAO();
-        dao.connect();
         // attempt login 
-        User user = dao.loginUser(username, password);
+        User user = applicationDAO.loginUser(username, password);
 
         if (user != null) {
             session.setAttribute("name", user.getFullname());
+            session.setAttribute("user_id", user.getId());
+            session.setAttribute("user_name", user.getFullname());
+            // get the login user's students 
+            List<Student> students = applicationDAO.getAllStudents((int) session.getAttribute("user_id"));
+            req.setAttribute("listStudent", students);
             dispatcher = req.getRequestDispatcher("/home/profile.jsp");
         }else{
             req.setAttribute("status", "failed");

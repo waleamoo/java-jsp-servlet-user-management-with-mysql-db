@@ -24,9 +24,14 @@
                         <strong>Success!</strong> Registration successful.
                         <button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button>
                       </div>
+                    <% } else if(request.getAttribute("status") == "invalidPassword") { %>
+                      <div class='alert alert-danger border-1 border-dark alert-dismissible fade show' role='alert'>
+                        <strong>Error!</strong> Password does not match.
+                        <button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button>
+                      </div>
                     <% } else if(request.getAttribute("status") == "failed") { %>
                       <div class='alert alert-danger border-1 border-dark alert-dismissible fade show' role='alert'>
-                        <strong>Error!</strong> Registration successful.
+                        <strong>Error!</strong> Registration failed.
                         <button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button>
                       </div>
                     <% } %>

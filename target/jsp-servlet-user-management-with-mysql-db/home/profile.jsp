@@ -17,8 +17,38 @@
             <div class="row">
 
                 <div class="col-12">
-                    <h2>Welcome to your profile area</h2>
-
+                    <ul class="navbar-nav">
+                        <li>
+                            <a href="<%= request.getContextPath() %>/list" class="nav-list">Students List</a>
+                        </li>
+                    </ul>
+                    <h2>Welcome to your profile area <%= session.getAttribute("username") </h2>
+                    
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Country</th>
+                                <th>&nbsp;</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <c:forEach var="student" items="listStudent">
+                            <tr>
+                                <td><c:out value="${student.id}" /></td>
+                                <td><c:out value="${student.name}" /></td>
+                                <td><c:out value="${student.email}" /></td>
+                                <td><c:out value="${student.country}" /></td>
+                                <td>
+                                    <a href="edit?id=<c:out value='${student.id}' />">Edit | </a>
+                                    <a href="delete?id=<c:out value='${student.id}' />">Delete </a>
+                                </td>
+                            </tr>
+                            </c:forEach>
+                        </tbody>
+                    </table>
                 </div>
 
             </div>

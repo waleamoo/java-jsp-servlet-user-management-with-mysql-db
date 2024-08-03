@@ -3,10 +3,13 @@ if(session.getAttribute("name") != null){
 	response.sendRedirect("home/profile.jsp");
 } 
 %>
-<%@ include file="/static/header.jsp" %>
+<%@ include file="static/header.jsp" %>
 <div class="container my-4">
     <div class="row">
         <div class="col-lg-3">
+          <div>This section contains the adverts. I just hope this works, it's really depressing and tiring! I must moved a folder 
+            and everything is acting up. Very funny!
+          </div>
 
             <h1 class="my-4">Sidebar Content</h1>
             <div class="list-group">
@@ -71,4 +74,4 @@ if(session.getAttribute("name") != null){
     </div>
 </div>
 
-<%@ include file="/static/footer.jsp" %>
+<%@ include file="static/footer.jsp" %>

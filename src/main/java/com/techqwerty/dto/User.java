@@ -1,5 +1,4 @@
 package com.techqwerty.dto;
-import java.util.Objects;
 
 public class User {
     private int id;
