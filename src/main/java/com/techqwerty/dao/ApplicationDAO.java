@@ -12,7 +12,7 @@ import com.techqwerty.dto.User;
 
 public class ApplicationDAO {
 
-    private String jdbcURL = "jdbc:mysql://localhost:3306/jsp_user_db?useSSL=false";
+    private String jdbcURL = "jdbc:mysql://localhost:3306/spring_us_mng?useSSL=false";
     private String jdbcUsername = "root";
     private String jdbcPassword = "";
     private String jdbcDriver = "com.mysql.cj.jdbc.Driver";

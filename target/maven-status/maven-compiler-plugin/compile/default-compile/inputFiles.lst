@@ -1,7 +1,8 @@
-c:\Users\Ola\Documents\Java\core-java\jsp-servlet-user-management-with-mysql-db\src\main\java\com\techqwerty\dao\ApplicationDAO.java
-c:\Users\Ola\Documents\Java\core-java\jsp-servlet-user-management-with-mysql-db\src\main\java\com\techqwerty\dto\User.java
-c:\Users\Ola\Documents\Java\core-java\jsp-servlet-user-management-with-mysql-db\src\main\java\com\techqwerty\registration\LogoutServlet.java
-c:\Users\Ola\Documents\Java\core-java\jsp-servlet-user-management-with-mysql-db\src\main\java\com\techqwerty\registration\RegistrationServlet.java
-c:\Users\Ola\Documents\Java\core-java\jsp-servlet-user-management-with-mysql-db\src\main\java\com\techqwerty\registration\StudentServlet.java
-c:\Users\Ola\Documents\Java\core-java\jsp-servlet-user-management-with-mysql-db\src\main\java\com\techqwerty\registration\LoginServlet.java
-c:\Users\Ola\Documents\Java\core-java\jsp-servlet-user-management-with-mysql-db\src\main\java\com\techqwerty\dto\Student.java
+c:\Users\Ola\Documents\Java\core-java\jsp-users-app\src\main\java\com\techqwerty\dao\ApplicationDAO.java
+c:\Users\Ola\Documents\Java\core-java\jsp-users-app\src\main\java\com\techqwerty\dto\User.java
+c:\Users\Ola\Documents\Java\core-java\jsp-users-app\src\main\java\com\techqwerty\util\MyEncryptor.java
+c:\Users\Ola\Documents\Java\core-java\jsp-users-app\src\main\java\com\techqwerty\dto\Student.java
+c:\Users\Ola\Documents\Java\core-java\jsp-users-app\src\main\java\com\techqwerty\registration\LogoutServlet.java
+c:\Users\Ola\Documents\Java\core-java\jsp-users-app\src\main\java\com\techqwerty\registration\RegistrationServlet.java
+c:\Users\Ola\Documents\Java\core-java\jsp-users-app\src\main\java\com\techqwerty\registration\LoginServlet.java
+c:\Users\Ola\Documents\Java\core-java\jsp-users-app\src\main\java\com\techqwerty\registration\StudentServlet.java

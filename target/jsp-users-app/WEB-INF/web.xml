@@ -1,0 +1,43 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+
+  <display-name>JSP MySQL Web Application</display-name>
+
+  <context-param>
+    <param-name>WebAppContextPath</param-name>
+    <param-value>http://localhost:8082/jsp-users-app</param-value>
+  </context-param>
+
+  <context-param>
+    <param-name>WebAppName</param-name>
+    <param-value>Users Management Application</param-value>
+  </context-param>
+
+  <servlet-mapping>
+    <servlet-name>default</servlet-name>
+    <url-pattern>/resources/*</url-pattern>
+  </servlet-mapping>
+
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+
+  <error-page>
+    <exception-type>java.lang.Exception</exception-type>
+    <location>/error.jsp</location>
+  </error-page>
+
+  <error-page>  
+    <error-code>500</error-code>  
+    <location>/error.jsp</location>  
+  </error-page>
+  
+  <error-page>
+    <error-code>404</error-code>  
+    <location>/error.jsp</location>  
+  </error-page>
+  
+</web-app>

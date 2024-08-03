@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 import com.techqwerty.dao.ApplicationDAO;
 import com.techqwerty.dto.Student;
 import com.techqwerty.dto.User;
+import com.techqwerty.util.MyEncryptor;
 
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
@@ -50,8 +51,11 @@ public class LoginServlet extends HttpServlet {
             dispatcher.forward(req, resp);
         }
 
+        // pass the password as encrypted password
+        String encryptedPassword = MyEncryptor.getMd5Hash(password);
+
         // attempt login 
-        User user = applicationDAO.loginUser(username, password);
+        User user = applicationDAO.loginUser(username, encryptedPassword);
 
         if (user != null) {
             session.setAttribute("name", user.getFullname());

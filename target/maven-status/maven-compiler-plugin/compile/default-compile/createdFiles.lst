@@ -4,4 +4,5 @@ com\techqwerty\registration\StudentServlet.class
 com\techqwerty\registration\RegistrationServlet.class
 com\techqwerty\dto\Student.class
 com\techqwerty\dao\ApplicationDAO.class
+com\techqwerty\util\MyEncryptor.class
 com\techqwerty\registration\LoginServlet.class

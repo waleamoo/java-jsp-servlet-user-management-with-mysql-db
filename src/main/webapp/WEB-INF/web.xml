@@ -6,18 +6,38 @@
 
   <display-name>JSP MySQL Web Application</display-name>
 
+  <context-param>
+    <param-name>WebAppContextPath</param-name>
+    <param-value>http://localhost:8082/jsp-users-app</param-value>
+  </context-param>
+
+  <context-param>
+    <param-name>WebAppName</param-name>
+    <param-value>Users Management Application</param-value>
+  </context-param>
+
+  <servlet-mapping>
+    <servlet-name>default</servlet-name>
+    <url-pattern>/resources/*</url-pattern>
+  </servlet-mapping>
+
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
 
-  <context-param>
-    <param-name>WebAppContextPath</param-name>
-    <param-value>http://localhost:8082/jsp-servlet-user-management-with-mysql-db/</param-value>
-  </context-param>
+  <error-page>
+    <exception-type>java.lang.Exception</exception-type>
+    <location>/error.jsp</location>
+  </error-page>
 
-  <context-param>
-      <param-name>WebAppName</param-name>
-      <param-value>User Management Application</param-value>
-  </context-param>
+  <error-page>  
+    <error-code>500</error-code>  
+    <location>/error.jsp</location>  
+  </error-page>
+  
+  <error-page>
+    <error-code>404</error-code>  
+    <location>/error.jsp</location>  
+  </error-page>
   
 </web-app>

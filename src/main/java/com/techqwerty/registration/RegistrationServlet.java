@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import com.techqwerty.dao.ApplicationDAO;
 import com.techqwerty.dto.User;
+import com.techqwerty.util.MyEncryptor;
 
 @WebServlet("/register")
 public class RegistrationServlet extends HttpServlet {
@@ -74,8 +75,11 @@ public class RegistrationServlet extends HttpServlet {
             dispatcher.forward(req, resp);
         }
 
+        // encrypt the password 
+        String encryptedPassword = MyEncryptor.getMd5Hash(password);
+
         // create a user object 
-        User user = new User(0, username, fullname, password, email, phone);
+        User user = new User(0, username, fullname, encryptedPassword, email, phone);
         // add the user to the database 
         try {
             

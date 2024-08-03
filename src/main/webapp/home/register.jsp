@@ -1,3 +1,9 @@
+<%
+if(session.getAttribute("user_name") != null){
+	response.sendRedirect(application.getInitParameter("WebAppContextPath") + "/list");
+} 
+%>
+
 <%@ include file="/static/header.jsp" %>
 <div class="container my-4">
     <div class="row">
