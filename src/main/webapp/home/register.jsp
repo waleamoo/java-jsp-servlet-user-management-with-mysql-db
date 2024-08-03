@@ -24,6 +24,26 @@
                         <strong>Success!</strong> Registration successful.
                         <button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button>
                       </div>
+                    <% } else if(request.getAttribute("status") == "invalidFullname") { %>
+                      <div class='alert alert-danger border-1 border-dark alert-dismissible fade show' role='alert'>
+                        <strong>Error!</strong> Full name not valid.
+                        <button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button>
+                      </div>
+                    <% } else if(request.getAttribute("status") == "invalidUsername") { %>
+                      <div class='alert alert-danger border-1 border-dark alert-dismissible fade show' role='alert'>
+                        <strong>Error!</strong> Username not valid.
+                        <button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button>
+                      </div>
+                    <% } else if(request.getAttribute("status") == "invalidEmail") { %>
+                      <div class='alert alert-danger border-1 border-dark alert-dismissible fade show' role='alert'>
+                        <strong>Error!</strong> Email not valid.
+                        <button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button>
+                      </div>
+                    <% } else if(request.getAttribute("status") == "invalidPhone") { %>
+                      <div class='alert alert-danger border-1 border-dark alert-dismissible fade show' role='alert'>
+                        <strong>Error!</strong> Phone number not valid.
+                        <button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button>
+                      </div>
                     <% } else if(request.getAttribute("status") == "invalidPassword") { %>
                       <div class='alert alert-danger border-1 border-dark alert-dismissible fade show' role='alert'>
                         <strong>Error!</strong> Password does not match.
@@ -32,6 +52,11 @@
                     <% } else if(request.getAttribute("status") == "failed") { %>
                       <div class='alert alert-danger border-1 border-dark alert-dismissible fade show' role='alert'>
                         <strong>Error!</strong> Registration failed.
+                        <button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button>
+                      </div>
+                    <% } else if(request.getAttribute("status") == "invalidPasswordLength") { %>
+                      <div class='alert alert-danger border-1 border-dark alert-dismissible fade show' role='alert'>
+                        <strong>Error!</strong> Please fill the password and confirm.
                         <button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button>
                       </div>
                     <% } %>

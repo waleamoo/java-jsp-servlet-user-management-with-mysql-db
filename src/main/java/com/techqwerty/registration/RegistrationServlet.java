@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.techqwerty.dao.ApplicationDAO;
 import com.techqwerty.dto.User;
 
-@WebServlet(description = "Registration servlet", urlPatterns = { "/register" })
+@WebServlet("/register")
 public class RegistrationServlet extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
@@ -38,32 +38,39 @@ public class RegistrationServlet extends HttpServlet {
         RequestDispatcher dispatcher = null;
 
         // server-side validation for the user entries 
-        if(username == null || username.equals("")){
-            req.setAttribute("status", "invalidUsername");
-            dispatcher = req.getRequestDispatcher("/home/register.jsp");
-            dispatcher.forward(req, resp);
-        }
         if(fullname == null || fullname.equals("")){
             req.setAttribute("status", "invalidFullname");
-            dispatcher = req.getRequestDispatcher("/home/register.jsp");
+            dispatcher = req.getRequestDispatcher("home/register.jsp");
+            dispatcher.forward(req, resp);
+        }
+
+        if(username == null || username.equals("")){
+            req.setAttribute("status", "invalidUsername");
+            dispatcher = req.getRequestDispatcher("home/register.jsp");
+            dispatcher.forward(req, resp);
+        }
+        
+        if(email == null || email.equals("")){
+            req.setAttribute("status", "invalidEmail");
+            dispatcher = req.getRequestDispatcher("home/register.jsp");
             dispatcher.forward(req, resp);
         }
 
         if(phone.length() < 10 || !phone.matches("\\d+")){
             req.setAttribute("status", "invalidPhone");
-            dispatcher = req.getRequestDispatcher("/home/register.jsp");
+            dispatcher = req.getRequestDispatcher("home/register.jsp");
             dispatcher.forward(req, resp);
         }
 
-        if(email == null || email.equals("")){
-            req.setAttribute("status", "invalidEmail");
-            dispatcher = req.getRequestDispatcher("/home/register.jsp");
+        if(password == null || password.equals("") || con_password == null || con_password.equals("")){
+            req.setAttribute("status", "invalidPasswordLength");
+            dispatcher = req.getRequestDispatcher("home/register.jsp");
             dispatcher.forward(req, resp);
         }
 
         if(!password.equals(con_password)){
             req.setAttribute("status", "invalidPassword");
-            dispatcher = req.getRequestDispatcher("/home/register.jsp");
+            dispatcher = req.getRequestDispatcher("home/register.jsp");
             dispatcher.forward(req, resp);
         }
 
@@ -73,9 +80,10 @@ public class RegistrationServlet extends HttpServlet {
         try {
             
             int rowCount = dao.registerUser(user);
-            dispatcher = req.getRequestDispatcher("/home/register.jsp");
+            dispatcher = req.getRequestDispatcher("/index.jsp"); // redirect to the login page
             if (rowCount > 0) {
                 req.setAttribute("status", "success");
+                dispatcher.forward(req, resp);
             }else{
                 req.setAttribute("status", "failed");
             }
